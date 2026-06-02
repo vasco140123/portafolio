@@ -2,7 +2,6 @@
 
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { profile } from "@/lib/data";
 
 export default function Loader() {
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -46,7 +45,7 @@ export default function Loader() {
         Cargando
       </p>
       <p className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-        <span className="gradient-text">{profile.shortName}</span>
+        <span className="gradient-text">Portafolio</span>
       </p>
       <div className="mt-10 h-0.5 w-48 overflow-hidden rounded-full bg-[var(--color-border)]">
         <div

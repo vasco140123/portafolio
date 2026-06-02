@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { navLinks, profile } from "@/lib/data";
+import { navLinks } from "@/lib/data";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -30,10 +30,20 @@ export default function Navbar() {
       <nav className="section-container flex h-16 items-center justify-between sm:h-[4.25rem]">
         <Link
           href="/"
-          className="link text-sm font-semibold tracking-tight sm:text-base"
+          className="link flex items-center gap-0.5 text-base font-bold tracking-wider sm:text-lg"
         >
-          <span className="gradient-text">{profile.fullName.split(" ")[0]}</span>
-          <span className="text-[var(--color-muted)]">.</span>
+          <span className="logo-container flex">
+            {"Portafolio".split("").map((char, i) => (
+              <span
+                key={i}
+                className="logo-letter"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
+                {char}
+              </span>
+            ))}
+          </span>
+          <span className="logo-dot">.</span>
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">
