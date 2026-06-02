@@ -1,7 +1,7 @@
 export const profile = {
   fullName: "Vasco Qori Ramos Mercado",
   shortName: "Vasco",
-  role: "Estudiante del IX semestre de Ingeniería de Sistemas en la UNCP",
+  role: "Estudiante de Ingeniería de Sistemas en la UNCP",
   email: "2021200796I@uncp.edu.pe",
   phone: "923391427",
   github: "https://github.com/vasco140123",
@@ -130,7 +130,7 @@ export const workExperience = [
   {
     title: "Formación — Ingeniería de Sistemas UNCP",
     description:
-      "IX semestre. Desarrollo web, inteligencia de datos y tecnologías emergentes, con enfoque en innovación y impacto real.",
+      "Desarrollo web, inteligencia de datos y tecnologías emergentes, con enfoque en innovación e impacto real.",
     gradient: "linear-gradient(to bottom right, #6366f1, #a855f7)",
   },
 ] as const;

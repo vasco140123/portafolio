@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import ClasesCTA from "@/components/ClasesCTA";
 import Work from "@/components/Work/Work";
 import Certifications from "@/components/Certifications";
 import Collaboration from "@/components/Collaboration";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <About />
       <Skills />
       <Projects />
+      <ClasesCTA />
       <Work />
       <Certifications />
       <Collaboration />

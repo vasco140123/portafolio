@@ -47,11 +47,19 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`link rounded-lg px-3 py-2 text-sm transition-colors ${
-                    active
-                      ? "bg-[var(--color-surface-elevated)] text-[var(--color-foreground)]"
-                      : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
-                  }`}
+                  className={
+                    isClases
+                      ? `link rounded-lg px-4 py-1.5 text-sm font-semibold transition-all duration-300 ${
+                          active
+                            ? "bg-violet-600 text-white shadow-[0_0_15px_rgba(139,92,246,0.4)]"
+                            : "border border-violet-500/40 bg-violet-500/10 text-violet-200 hover:bg-violet-500/25 hover:text-white hover:border-violet-400 hover:shadow-[0_0_15px_-3px_rgba(139,92,246,0.3)]"
+                        }`
+                      : `link rounded-lg px-3 py-2 text-sm transition-colors ${
+                          active
+                            ? "bg-[var(--color-surface-elevated)] text-[var(--color-foreground)]"
+                            : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
+                        }`
+                  }
                 >
                   {link.label}
                 </Link>
@@ -96,17 +104,32 @@ export default function Navbar() {
       {open && (
         <div className="border-b border-[var(--color-border)] bg-[var(--color-background)]/95 px-5 pb-4 md:hidden">
           <ul className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="link block rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:bg-[var(--color-surface)] hover:text-[var(--color-foreground)]"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isClases = link.href === "/clases";
+              const active = isClases
+                ? pathname === "/clases"
+                : isHome && link.href.startsWith("/#");
+
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={
+                      isClases
+                        ? `link block rounded-lg px-3 py-2.5 text-sm font-semibold transition-all duration-300 ${
+                            active
+                              ? "bg-violet-600 text-white border border-violet-500/50"
+                              : "border border-violet-500/30 bg-violet-500/10 text-violet-300 hover:bg-violet-500/20 hover:text-white"
+                          }`
+                        : "link block rounded-lg px-3 py-2.5 text-sm text-[var(--color-muted)] hover:bg-[var(--color-surface)] hover:text-[var(--color-foreground)]"
+                    }
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
