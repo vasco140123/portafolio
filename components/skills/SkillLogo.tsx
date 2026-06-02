@@ -8,10 +8,15 @@ type SkillLogoProps = {
 };
 
 export function getSkillIconUrl(slug: string) {
+  if (["java", "microsoftsqlserver", "powerbi"].includes(slug)) {
+    return `/portafolio/img/skills/${slug}.svg`;
+  }
   return `https://cdn.simpleicons.org/${slug}/e2e8f0`;
 }
 
 export default function SkillLogo({ name, slug, className }: SkillLogoProps) {
+  const isLocal = ["java", "microsoftsqlserver", "powerbi"].includes(slug);
+
   return (
     <div
       className={cn(
@@ -28,7 +33,10 @@ export default function SkillLogo({ name, slug, className }: SkillLogoProps) {
           src={getSkillIconUrl(slug)}
           alt={name}
           fill
-          className="object-contain"
+          className={cn(
+            "object-contain transition-all duration-300",
+            isLocal && "brightness-[0.9] contrast-[0.2] invert-[0.95]"
+          )}
           sizes="96px"
           unoptimized
         />

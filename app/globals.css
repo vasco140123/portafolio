@@ -363,3 +363,8 @@ body {
   animation: float 4s ease-in-out 2s infinite, pulse-glow-violet 4.5s ease-in-out 2.25s infinite;
 }
 
+/* Hover effect to restore full color to local SVGs */
+.skill-logo-card:hover img {
+  filter: none !important;
+}
+
