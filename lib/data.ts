@@ -10,7 +10,7 @@ export const profile = {
     "Me interesa especialmente el desarrollo de software, la automatización de procesos y el análisis de datos aplicado a entornos empresariales y educativos. Además, cuento con experiencia en la estructuración y presentación de proyectos tecnológicos, integrando conceptos de arquitectura de software, dashboards y transformación digital.",
     "Actualmente continúo fortaleciendo mis conocimientos en desarrollo web, inteligencia de datos y tecnologías emergentes, buscando construir soluciones innovadoras con impacto real.",
   ],
-  profileImage: "/img/perfil.jpeg",
+  profileImage: "/portafolio/img/perfil.jpeg",
 } as const;
 
 export const typedStrings = [
@@ -63,7 +63,7 @@ export const projects = [
     tags: ["Python", "Pandas", "PySide6 / Qt", "Tkinter", "Excel Integration"],
     gradient: "from-violet-600/40 via-fuchsia-500/20 to-transparent",
     github: "https://github.com/vasco140123/UNIFICACION-DE-DATOS-PRESUPUESTALES.git",
-    image: "/projects/budget.png",
+    image: "/portafolio/projects/budget.png",
   },
   {
     id: 2,
@@ -72,7 +72,7 @@ export const projects = [
     tags: ["React", "Vite", "Gemini AI", "Recharts", "Lucide Icons"],
     gradient: "from-cyan-500/40 via-blue-600/20 to-transparent",
     github: "https://github.com/vasco140123/decorfinanzas.git",
-    image: "/projects/decor.png",
+    image: "/portafolio/projects/decor.png",
   },
   {
     id: 3,
@@ -81,7 +81,7 @@ export const projects = [
     tags: ["React", "Vite", "Dashboard", "CSS Grid", "Tailwind CSS"],
     gradient: "from-emerald-500/40 via-teal-600/20 to-transparent",
     github: "https://github.com/vasco140123/geek-dashboard.git",
-    image: "/projects/geek.png",
+    image: "/portafolio/projects/geek.png",
   },
   {
     id: 4,
@@ -90,7 +90,7 @@ export const projects = [
     tags: ["JavaScript", "TypeScript", "DOM API", "Asynchronous", "Validaciones"],
     gradient: "from-amber-500/40 via-orange-600/20 to-transparent",
     github: "https://github.com/vasco140123/JavaScript-TypeScript-Manipulaci-n-del-DOM-Funciones-Avanzadas.git",
-    image: "/projects/dom.png",
+    image: "/portafolio/projects/dom.png",
   },
   {
     id: 5,
@@ -99,7 +99,7 @@ export const projects = [
     tags: ["React", "Vite", "useReducer", "Theme Context", "Performance Optimization"],
     gradient: "from-pink-500/40 via-red-600/20 to-transparent",
     github: "https://github.com/vasco140123/React-Hooks-semana-7-GRUPAL.git",
-    image: "/projects/task.png",
+    image: "/portafolio/projects/task.png",
   },
   {
     id: 6,
@@ -108,7 +108,7 @@ export const projects = [
     tags: ["React 19", "Vite", "Axios", "API Integration", "State Management"],
     gradient: "from-indigo-500/40 via-purple-600/20 to-transparent",
     github: "https://github.com/vasco140123/semana-6-aplicacion-web.git",
-    image: "/projects/web.png",
+    image: "/portafolio/projects/web.png",
   },
 ] as const;
 
@@ -117,14 +117,14 @@ export const workExperience = [
     title: "Experiencia en desarrollo de sistemas",
     description:
       "Proyectos con Java, SQL Server y tecnologías web, orientados a soluciones funcionales, organizadas y escalables para entornos empresariales y educativos.",
-    image: "/img/exp.jpg",
+    image: "/portafolio/img/exp.jpg",
     gradient: "linear-gradient(to bottom right, #8b5cf6, #22d3ee)",
   },
   {
     title: "Proyectos tecnológicos y análisis de datos",
     description:
       "Estructuración y presentación de iniciativas integrando arquitectura de software, dashboards, automatización de procesos y transformación digital.",
-    image: "/img/exp2.jpeg",
+    image: "/portafolio/img/exp2.jpeg",
     gradient: "linear-gradient(to bottom right, #22d3ee, #6366f1)",
   },
   {
