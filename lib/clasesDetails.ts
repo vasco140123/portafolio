@@ -44,6 +44,14 @@ error_reporting(E_ALL);
 $serverName = $_SERVER['SERVER_NAME'];
 $serverSoftware = $_SERVER['SERVER_SOFTWARE'];
 echo "Servidor: " . htmlspecialchars($serverName) . " running on " . htmlspecialchars($serverSoftware);`
+      },
+      {
+        title: "¿Qué se aprendió?",
+        text: "Se adquirió un entendimiento riguroso de la arquitectura cliente-servidor, el protocolo de red HTTP y el ciclo de vida de una petición. Se comprendió cómo el servidor Apache intercepta peticiones dirigidas a la IP de bucle de retorno (127.0.0.1 / localhost) y delega la ejecución de archivos '.php' al intérprete de PHP 8.x, el cual compila la lógica en el servidor y retorna contenido estático al cliente. De igual manera, se estudió el archivo de configuración global 'php.ini' para gestionar directivas de depuración de errores."
+      },
+      {
+        title: "¿Cómo se aplicó?",
+        text: "Se instaló y configuró la distribución local XAMPP y se integró el binario de PHP a las variables de entorno del sistema operativo Windows para su uso global por consola (CLI). Se modificó el archivo 'php.ini' para habilitar un entorno estricto de desarrollo ('display_errors = On' y 'error_reporting = E_ALL'). Finalmente, se creó y desplegó en el directorio '/htdocs' un script PHP de diagnóstico que evalúa variables de entorno de red y del servidor ('$_SERVER') e imprime el estado general del entorno."
       }
     ],
     projects: [
@@ -91,6 +99,14 @@ $descuentoPorcentaje = match ($categoria) {
 
 $total = calcularImporteTotal(1250.00, 2, $descuentoPorcentaje);
 echo "Total a pagar: S/ " . number_format($total, 2);`
+      },
+      {
+        title: "¿Qué se aprendió?",
+        text: "Se aprendió el manejo de estructuras condicionales avanzadas (sentencia 'match' de PHP 8.x) que garantizan comparaciones de tipo estrictas y legibilidad superior frente al tradicional switch. Se analizó el control de datos estructurados complejos a través de arreglos indexados y asociativos, y se comprendió el beneficio de forzar el tipado estricto ('declare(strict_types=1)') para prevenir errores lógicos silenciosos en tiempo de ejecución."
+      },
+      {
+        title: "¿Cómo se aplicó?",
+        text: "Se desarrolló un módulo de algoritmia para procesamiento de compras en PHP Vanilla. Se implementaron bucles iterativos optimizados ('foreach') para procesar un arreglo asociativo multidimensional que representaba una lista de productos. La lógica de negocio (descuentos comerciales, recargos y cálculo de impuestos) fue encapsulada en funciones con tipos estrictos definidos de parámetros y retorno, devolviendo un reporte formateado."
       }
     ],
     projects: [
@@ -141,6 +157,14 @@ class SMSService implements Notificable {
 function enviarAlerta(Notificable $notificador, string $mensaje) {
     $notificador->enviarNotificacion($mensaje);
 }`
+      },
+      {
+        title: "¿Qué se aprendió?",
+        text: "Se comprendieron a nivel teórico y práctico los principios clave del paradigma de Programación Orientada a Objetos (POO): la encapsulación para aislar propiedades internas, la herencia para extender funcionalidades entre clases jerárquicas, la abstracción de contratos estructurales, y el polimorfismo mediante el uso de interfaces de software, permitiendo el desacoplamiento en la arquitectura."
+      },
+      {
+        title: "¿Cómo se aplicó?",
+        text: "Se implementó un modelo estructurado de clases para simular perfiles de usuario. Se definió una interfaz abstracta 'Notificable' que expone el método de envío de mensajes. Clases específicas como 'CorreoService' y 'SMSService' implementaron dicha interfaz de forma particular. Finalmente, se diseñó un despachador genérico de alertas que recibe y ejecuta el método de forma polimórfica sin importar la clase concreta instanciada."
       }
     ],
     projects: [
@@ -188,6 +212,14 @@ try {
       {
         title: "4. Control de Transacciones (ACID)",
         text: "Para asegurar la atomicidad de múltiples operaciones de base de datos concurrentes, PDO implementa transacciones mediante 'beginTransaction()', 'commit()' y 'rollBack()'. Esto garantiza que si una de las operaciones falla, todos los cambios parciales se deshagan automáticamente."
+      },
+      {
+        title: "¿Qué se aprendió?",
+        text: "Se dominó el concepto de persistencia de datos relacional y conectividad robusta mediante la extensión PDO (PHP Data Objects). Se comprendió la vulnerabilidad de inyección SQL (SQL Injection), donde entradas maliciosas manipulan la semántica de la base de datos, y cómo mitigarlas al 100% implementando Sentencias Preparadas (Prepared Statements) con mapeo seguro de variables."
+      },
+      {
+        title: "¿Cómo se aplicó?",
+        text: "Se diseñó un esquema relacional con tablas de base de datos MySQL (usuarios y reportes). Se construyó un objeto de conexión robusto configurando PDO con control estricto de excepciones ('PDOException'). Se desarrollaron consultas de persistencia (INSERT y SELECT) utilizando placeholders de parámetros, asegurando que las entradas provenientes de la red sean interpretadas estrictamente como datos e imposibilitando ataques de inyección."
       }
     ],
     projects: [
@@ -229,6 +261,14 @@ class Router {
         echo "404 - Ruta no encontrada";
     }
 }`
+      },
+      {
+        title: "¿Qué se aprendió?",
+        text: "Se aprendió el patrón de diseño arquitectónico Modelo-Vista-Controlador (MVC) y su principio de separación de responsabilidades: aislar la lógica de acceso a datos (Modelo) de la interfaz visual del usuario (Vista), coordinadas mediante un componente lógico central (Controlador). Se comprendió el patrón de diseño Front Controller que encauza todas las solicitudes de la aplicación hacia un punto único de entrada."
+      },
+      {
+        title: "¿Cómo se aplicó?",
+        text: "Se configuró el servidor web Apache utilizando directivas de reescritura de URLs en un archivo de configuración '.htaccess' para redirigir todo el tráfico entrante al script de entrada 'index.php'. Se desarrolló un Enrutador ('Router') conceptual que mapea rutas y despacha parámetros hacia controladores específicos, delegando la extracción de datos al modelo y renderizando las plantillas de vistas adecuadas."
       }
     ],
     projects: [
@@ -268,6 +308,14 @@ $response = [
 
 // Serialización nativa optimizada
 echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);`
+      },
+      {
+        title: "¿Qué se aprendió?",
+        text: "Se comprendió el funcionamiento de Composer como gestor de dependencias e inyector de autocarga PSR-4 en proyectos PHP. De igual manera, se estudió el protocolo REST para el diseño de interfaces de servicios (APIs), dominando el uso semántico de verbos HTTP (GET y POST) y la entrega serializada de recursos en formato plano estándar JSON."
+      },
+      {
+        title: "¿Cómo se aplicó?",
+        text: "Se inicializó Composer configurando un esquema de nombres de clases compatible con PSR-4. Se implementaron cabeceras HTTP ('Content-Type: application/json') para estructurar respuestas de API RESTful. El backend serializó colecciones de datos del servidor a JSON mediante 'json_encode()', las cuales fueron probadas exhaustivamente con peticiones simuladas en Postman y consumidas asíncronamente desde el cliente."
       }
     ],
     projects: [
@@ -313,6 +361,14 @@ class Categoria extends Model {
 
 // Ejemplo de uso en controlador de Laravel:
 // $productosActivos = Categoria::find(1)->productos()->where('activo', true)->get();`
+      },
+      {
+        title: "¿Qué se aprendió?",
+        text: "Se asimilaron los conceptos del framework Laravel: la arquitectura de carpetas global, el enrutamiento web ('routes/web.php'), el motor de plantillas Blade (directivas de herencia, layouts, secciones `@extends` y `@yield`) y el mapeador relacional Eloquent ORM para realizar operaciones con bases de datos abstrayendo la escritura directa de código SQL."
+      },
+      {
+        title: "¿Cómo se aplicó?",
+        text: "Se inicializó un entorno ágil con Laravel. Se estructuraron las rutas para mapear llamadas del cliente hacia métodos de controladores específicos. Se maquetó la interfaz utilizando Blade para la herencia dinámica de vistas comunes, y se definieron modelos Eloquent estructurando relaciones de datos de Uno a Muchos ('HasMany') para consultar base de datos de manera fluida y orientada a objetos."
       }
     ],
     projects: [
@@ -348,6 +404,14 @@ class Categoria extends Model {
       {
         title: "3. Consolidación y Siguientes Fases",
         text: "Tras la revisión de la evaluación de logro, se realiza una sesión de retroalimentación donde se abordan errores comunes (como el manejo inadecuado de errores PDO o fallas de ruteo) y se definen las bases de diseño para la transición al framework moderno Laravel en la segunda mitad del ciclo."
+      },
+      {
+        title: "¿Qué se aprendió?",
+        text: "Se consolidaron e integraron los conocimientos adquiridos en la primera mitad del periodo académico: el despliegue local seguro de servidores, el diseño relacional y conectividad robusta mediante excepciones PDO, la modularización orientada a objetos (POO), y la implementación ordenada bajo el patrón arquitectónico de diseño MVC."
+      },
+      {
+        title: "¿Cómo se aplicó?",
+        text: "Se rindió una evaluación práctica individual en la cual se desarrolló un sistema web funcional desde cero. Se implementó una conexión segura a base de datos MariaDB (MySQL) utilizando sentencias preparadas en clases de modelo backend, estructurando la redirección en un ruteador frontal (Front Controller) y renderizando las plantillas responsivas en las vistas del usuario final."
       }
     ],
     projects: [
