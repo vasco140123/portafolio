@@ -55,11 +55,12 @@ function renderPortfolioData() {
   if (projContainer && globalData.projects) {
     projContainer.innerHTML = '';
     globalData.projects.forEach((proj, idx) => {
-      // El primero siempre es span 2x2 en bento-grid
-      const isLarge = idx === 0 ? 'large' : proj.size || 'normal';
+      const tetris = ['feature', 'normal', 'vertical', 'normal', 'horizontal', 'normal'];
+      const sizeCls = tetris[idx % tetris.length];
+      const cls = idx === 0 ? 'feature' : sizeCls;
       const tags = proj.tags.map(t => `<span class="bento-tag">${t}</span>`).join('');
       projContainer.innerHTML += `
-        <article class="bento-card ${isLarge === 'large' ? 'feature' : isLarge === 'horizontal' ? 'horizontal' : ''}" data-tilt>
+        <article class="bento-card ${cls !== 'normal' ? cls : ''}" data-tilt>
           <div class="bento-content">
             <h3 class="bento-title">${escapeHtml(proj.title)}</h3>
             <p class="bento-desc">${escapeHtml(proj.description)}</p>
@@ -77,8 +78,9 @@ function renderPortfolioData() {
     certContainer.innerHTML = '';
     globalData.certifications.forEach((cert, idx) => {
       // Forzar patrón de ladrillo asimétrico basado en el índice
-      const isHorizontal = (idx % 3 === 0) || cert.size === 'horizontal';
-      const cls = isHorizontal ? 'cert-card horizontal' : 'cert-card';
+      const certTetris = ['horizontal', 'normal', 'normal', 'vertical', 'normal', 'horizontal'];
+      const certSize = certTetris[idx % certTetris.length];
+      const cls = 'cert-card ' + certSize;
       const linkStyle = cert.url ? `cursor: pointer;` : '';
       const onClickAttr = cert.url ? `onclick="window.open('${escapeHtml(cert.url)}', '_blank')"` : '';
       const urlHtml = cert.url ? `<span style="margin-top:auto; font-weight:600; color:var(--cyan); font-size:0.85rem; padding:12px 0;">Ver Credencial ↗</span>` : '';
@@ -127,6 +129,11 @@ function renderPortfolioData() {
 
   // Render Admin Lists
   renderAdminLists();
+
+  // Refrescar GSAP porque el DOM cambió
+  setTimeout(() => {
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  }, 100);
 }
 
 function saveData() {

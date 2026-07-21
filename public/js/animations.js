@@ -147,7 +147,7 @@ function initGSAP() {
         scrollTrigger: {
           trigger: section,
           start: 'top 85%',
-          toggleActions: 'play none none none',
+          once: true,
         }
       }
     );
