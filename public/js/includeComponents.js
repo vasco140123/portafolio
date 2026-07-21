@@ -96,17 +96,21 @@ function updateActiveNavLink() {
  * cuando el usuario hace clic en el link de sesiones.
  */
 function setupSPARouter() {
-  // El router de sesiones está gestionado por crudManager.js y lessonManager.js
-  // Este módulo solo maneja la navegación suave entre secciones del index
-  const navLinks = document.querySelectorAll('#navbar-links a[href^="#"]');
+  const navLinks = document.querySelectorAll('#navbar-links a');
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
-      if (href.startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
+      if (!href) return;
+      
+      const isIndex = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
+      
+      if (isIndex && href.includes('#')) {
+        const hash = href.substring(href.indexOf('#'));
+        const target = document.querySelector(hash);
         if (target) {
+          e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, null, hash);
         }
       }
     });
