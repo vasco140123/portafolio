@@ -104,17 +104,17 @@
 })();
 
 // ─── Inicialización Post-Componentes ──────────────────────────────────────────
+// Solo usar el evento components-loaded como señal principal
+// El setTimeout de 600ms causaba race conditions cuando los componentes tardaban más
 window.addEventListener('components-loaded', initAnimations);
-document.addEventListener('DOMContentLoaded', () => { setTimeout(initAnimations, 600); });
 
 let animationsInitialized = false;
 
 function initAnimations() {
   if (animationsInitialized) return;
   
-  // Respetar la preferencia del usuario por menor movimiento (Mobile Performance)
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    gsap.set('[data-reveal]', { opacity: 1 }); // Revelar todo instantáneamente
+    gsap.set('[data-reveal]', { opacity: 1 });
     animationsInitialized = true;
     return;
   }
@@ -124,6 +124,19 @@ function initAnimations() {
   initTyped();
   initVanillaTilt();
 }
+
+// ─── Watchdog: recuperar elementos ocultos ────────────────────────────────────
+// Si después de 4s algún [data-reveal] sigue con opacity 0, revelarlo
+setTimeout(() => {
+  const hidden = document.querySelectorAll('[data-reveal]');
+  hidden.forEach(el => {
+    const style = window.getComputedStyle(el);
+    if (style.opacity === '0' || style.opacity === '') {
+      el.style.opacity = '1';
+      el.style.transition = 'opacity 0.5s ease';
+    }
+  });
+}, 4000);
 
 // ─── GSAP ScrollTrigger ───────────────────────────────────────────────────────
 function initGSAP() {
@@ -143,7 +156,7 @@ function initGSAP() {
         y: 0, opacity: 1,
         duration: 0.7,
         ease: 'power3.out',
-        stagger: 0.12, /* Stagger exacto requerido */
+        stagger: 0.12,
         scrollTrigger: {
           trigger: section,
           start: 'top 85%',
@@ -182,6 +195,13 @@ function initRevealFallback() {
   }, { threshold: 0.1 });
   items.forEach(el => observer.observe(el));
 }
+
+// ─── Re-init dinámico para contenido del CMS ─────────────────────────────────
+// Cuando el CMS renderiza contenido nuevo, reiniciar tilt + watchers
+window.addEventListener('portfolio-data-rendered', () => {
+  if (typeof initVanillaTilt === 'function') initVanillaTilt();
+  ScrollTrigger.refresh();
+});
 
 // ─── Typed.js ─────────────────────────────────────────────────────────────────
 function initTyped() {

@@ -148,9 +148,10 @@ function renderPortfolioData() {
   // Render Admin Lists
   renderAdminLists();
 
-  // Refrescar GSAP porque el DOM cambió
+  // Refrescar GSAP y notificar a animations.js que el DOM cambió
   setTimeout(() => {
     if (window.ScrollTrigger) ScrollTrigger.refresh();
+    window.dispatchEvent(new Event('portfolio-data-rendered'));
   }, 100);
 }
 
