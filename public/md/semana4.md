@@ -48,11 +48,11 @@ Se ingresa mediante la URL: `http://localhost/phpmyadmin/`
 
 | Característica | `mysql_*` (desfasado) | `mysqli_*` | `PDO` |
 |---|---|---|---|
-| Soporte para múltiples motores | ❌ Exclusivo para MySQL | ❌ Limitado a MySQL/MariaDB | ✅ Compatible con 12+ motores |
-| Sentencias Preparadas (Prepared Statements) | ❌ Inexistente | ✅ Disponible | ✅ Disponible |
-| Parámetros Nominados (Named Parameters) | ❌ Inexistente | ❌ Inexistente | ✅ Disponible |
-| Gestión de Excepciones | ❌ Inexistente | ❌ Parcial | ✅ Mediante PDOException |
-| Orientación a Objetos | ❌ Inexistente | ✅ Parcial | ✅ Total |
+| Soporte para múltiples motores |  Exclusivo para MySQL |  Limitado a MySQL/MariaDB |  Compatible con 12+ motores |
+| Sentencias Preparadas (Prepared Statements) |  Inexistente |  Disponible |  Disponible |
+| Parámetros Nominados (Named Parameters) |  Inexistente |  Inexistente |  Disponible |
+| Gestión de Excepciones |  Inexistente |  Parcial |  Mediante PDOException |
+| Orientación a Objetos |  Inexistente |  Parcial |  Total |
 
 ### Creando la Conexión con PDO
 
@@ -80,7 +80,7 @@ try {
 
     $pdo = new PDO($dsn, $usuario, $password, $opciones);
 
-    echo "✅ Enlace a la base de datos realizado satisfactoriamente.";
+    echo " Enlace a la base de datos realizado satisfactoriamente.";
 
 } catch (PDOException $e) {
     // Evitar la exposición de detalles de la excepción al usuario final en producción
@@ -97,7 +97,7 @@ La **inyección SQL (SQL Injection)** representa un riesgo crítico de seguridad
 
 ```php
 <?php
-// ⚠️ CÓDIGO CON VULNERABILIDAD - NO UTILIZAR NUNCA
+// ️ CÓDIGO CON VULNERABILIDAD - NO UTILIZAR NUNCA
 $nombre = $_GET['nombre']; // Entrada del usuario: ' OR '1'='1
 $sql    = "SELECT * FROM usuarios WHERE nombre = '$nombre'";
 // La instrucción evaluada resulta en:
@@ -150,7 +150,7 @@ try {
     $estudiantes = buscarEstudiantes($pdo, "Ramos", "Ingeniería de Sistemas");
 
     foreach ($estudiantes as $estudiante) {
-        echo "📚 {$estudiante['nombre_completo']} | "
+        echo " {$estudiante['nombre_completo']} | "
            . "Código: {$estudiante['codigo_universitario']} | "
            . "Promedio: {$estudiante['promedio_ponderado']}<br>";
     }
@@ -219,7 +219,7 @@ function transferirFondos(
         ]);
 
         $pdo->commit(); // Confirmar y consolidar las operaciones realizadas
-        echo "✅ Transferencia por el monto de S/ {$monto} efectuada con éxito.";
+        echo " Transferencia por el monto de S/ {$monto} efectuada con éxito.";
 
     } catch (\Exception $e) {
         $pdo->rollBack(); // Deshacer todas las modificaciones si ocurre un error

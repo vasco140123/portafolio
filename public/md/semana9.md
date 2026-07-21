@@ -118,9 +118,9 @@ El **Server Side Rendering (SSR)** o procesamiento en el servidor es el enfoque 
 | Característica | SSR (Renderizado en Servidor) | SPA (Client Side Rendering) |
 |---|---|---|
 | ¿Dónde se procesa el HTML? | Directamente en el servidor | En el cliente mediante JavaScript |
-| Indexación SEO | ✅ Óptima (HTML estructurado desde el origen) | ⚠️ Exige configuraciones especiales |
-| Tiempo de carga inicial | ✅ Ágil (documento renderizado listo) | ⚠️ Más lento (requiere descargar módulos JS) |
-| Dinamismo e interacción | ⚠️ Implica recarga de página | ✅ Fluida y sin refresco visual |
+| Indexación SEO |  Óptima (HTML estructurado desde el origen) | ️ Exige configuraciones especiales |
+| Tiempo de carga inicial |  Ágil (documento renderizado listo) | ️ Más lento (requiere descargar módulos JS) |
+| Dinamismo e interacción | ️ Implica recarga de página |  Fluida y sin refresco visual |
 | Exigencia en el servidor | Mayor carga de cómputo | Menor esfuerzo en el servidor |
 | Tecnologías habituales | PHP, Django, Laravel, Rails | React, Vue, Angular |
 

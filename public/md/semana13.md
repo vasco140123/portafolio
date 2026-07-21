@@ -46,7 +46,7 @@ La correcta concepción de los endpoints resulta fundamental durante el desarrol
 ### Pautas de Nomenclatura
 
 ```
-✅ Correcto (uso de sustantivos en plural, caracteres en minúscula y guiones)
+ Correcto (uso de sustantivos en plural, caracteres en minúscula y guiones)
 GET    /api/v1/productos/                → Consultar el catálogo completo de productos
 POST   /api/v1/productos/                → Registrar un producto nuevo
 GET    /api/v1/productos/5/              → Consultar el producto con identificador 5
@@ -56,7 +56,7 @@ DELETE /api/v1/productos/5/              → Remover el producto 5
 GET    /api/v1/productos/5/reseñas/      → Obtener reseñas vinculadas al producto 5 (subrecurso)
 POST   /api/v1/productos/5/reseñas/      → Agregar una opinión sobre el producto 5
 
-❌ Incorrecto (inclusión de verbos en la URL, alterando la claridad semántica)
+ Incorrecto (inclusión de verbos en la URL, alterando la claridad semántica)
 GET    /api/v1/obtener-productos/
 POST   /api/v1/crear-producto/
 GET    /api/v1/producto?id=5

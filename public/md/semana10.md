@@ -112,7 +112,7 @@ print(len(materias))                       # Conteo total: 5
 coordenadas_huancayo = (-12.0653, -75.2049)  # Latitud, Longitud
 rgb_verde = (0, 255, 0)
 
-# coordenadas_huancayo[0] = -11.0  # ❌ TypeError: 'tuple' object does not support item assignment
+# coordenadas_huancayo[0] = -11.0  #  TypeError: 'tuple' object does not support item assignment
 latitud, longitud = coordenadas_huancayo   # Desempaquetado (unpacking)
 print(f"Latitud: {latitud}, Longitud: {longitud}")
 
@@ -311,16 +311,16 @@ def leer_configuracion(ruta: str) -> dict:
         with open(ruta, 'r', encoding='utf-8') as archivo:
             return json.load(archivo)
     except FileNotFoundError:
-        print(f"❌ No se encontró el archivo indicado: {ruta}")
+        print(f" No se encontró el archivo indicado: {ruta}")
         return {}
     except json.JSONDecodeError as e:
-        print(f"❌ Estructura JSON defectuosa: {e}")
+        print(f" Estructura JSON defectuosa: {e}")
         return {}
     except PermissionError:
-        print(f"❌ Permisos insuficientes para acceder a: {ruta}")
+        print(f" Permisos insuficientes para acceder a: {ruta}")
         return {}
     finally:
-        print("✅ Operación de lectura concluida.")  # Ejecución garantizada
+        print(" Operación de lectura concluida.")  # Ejecución garantizada
 
 # Definición de una excepción a medida
 class SaldoInsuficienteError(ValueError):

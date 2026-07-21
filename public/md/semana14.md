@@ -259,7 +259,7 @@ docker compose exec web python manage.py shell
 # Detener y desmantelar contenedores (manteniendo volúmenes)
 docker compose down
 
-# Eliminar contenedores y volúmenes (⚠️ elimina los datos guardados)
+# Eliminar contenedores y volúmenes (️ elimina los datos guardados)
 docker compose down -v
 ```
 

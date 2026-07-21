@@ -1,119 +1,90 @@
-# 🚀 Portafolio Académico — Vasco Qori Ramos Mercado
+# Portafolio Academico - Vasco Qori Ramos Mercado
 
-> Estudiante de Ingeniería de Sistemas · Universidad Nacional del Centro del Perú (UNCP) · 5to Ciclo
-
----
-
-## 🧩 Descripción
-
-Portafolio personal académico desarrollado para el curso **Desarrollo de Aplicaciones Web** (2025-I).
-Documenta 15 semanas de aprendizaje, proyectos destacados, habilidades técnicas y un sistema de bitácora interactivo.
+Estudiante de Ingenieria de Sistemas | Universidad Nacional del Centro del Peru (UNCP) | 5to Ciclo
 
 ---
 
-## 🏗️ Arquitectura
+## Descripcion
 
-Arquitectura **Vanilla Web** (sin frameworks ni bundlers):
+Portafolio personal academico desarrollado para el curso Desarrollo de Aplicaciones Web (2025-I).
+Documenta 15 semanas de aprendizaje, proyectos destacados, habilidades tecnicas y un sistema de bitacora interactivo.
 
-```
+---
+
+## Arquitectura
+
+Arquitectura Vanilla Web (sin frameworks ni bundlers) con un enfoque Mobile-First y Totalmente Fluido:
+
 PORTAFOLIO COMPLETO/
-├── index.html              ← Página principal (SPA)
-├── leccion.html            ← Lector de apuntes Markdown
-├── components/             ← Componentes HTML parciales
+├── index.html              (Pagina principal SPA)
+├── leccion.html            (Lector de apuntes Markdown)
+├── components/             (Componentes HTML parciales)
 │   ├── navbar.html
 │   ├── hero.html
-│   ├── about.html
-│   ├── skills.html
-│   ├── projects.html
-│   ├── sesiones-clase.html
-│   ├── certifications.html
-│   ├── contact.html
-│   └── footer.html
+│   ├── admin-panel.html    (Panel de gestion CMS)
+│   └── ...
 └── public/
-    ├── css/                ← Hojas de estilo por sección
-    │   ├── styles.css      ← Variables, reset y utilidades globales
-    │   ├── navbar.css
-    │   ├── hero.css
-    │   ├── about.css
-    │   ├── skills.css
-    │   ├── projects.css
-    │   ├── sesiones.css
-    │   ├── leccion.css
-    │   └── contact.css
-    ├── js/                 ← Lógica JavaScript nativa
-    │   ├── includeComponents.js  ← Cargador de componentes
-    │   ├── animations.js         ← GSAP, Typed.js, Vanilla-Tilt
-    │   ├── lessonManager.js      ← Renderizado de Markdown
-    │   └── crudManager.js        ← CRUD de sesiones en localStorage
-    ├── md/                 ← Apuntes en Markdown (15 semanas)
-    │   ├── semana1.md ... semana15.md
-    ├── img/                ← Imágenes de perfil y experiencia
-    └── projects/           ← Capturas de proyectos
-```
+    ├── css/                (Hojas de estilo por seccion y globales)
+    ├── js/                 (Logica JavaScript nativa)
+    │   ├── includeComponents.js  (Cargador de componentes)
+    │   ├── animations.js         (GSAP, Typed.js, Vanilla-Tilt)
+    │   ├── lessonManager.js      (Renderizado de Markdown)
+    │   └── cmsManager.js         (Panel CMS, GitHub API y guardado JSON)
+    ├── md/                 (Apuntes en Markdown - 15 semanas)
+    └── data.json           (Base de datos local del portafolio)
 
 ---
 
-## ✨ Características
+## Caracteristicas
 
-| Característica | Descripción |
-|---|---|
-| 🎨 **Diseño Dark Mode** | Paleta oscura con acentos violeta y cyan |
-| 🔄 **Component Loader** | HTML parciales cargados vía `fetch()` |
-| 📚 **Markdown Rendering** | Apuntes renderizados con `Marked.js` |
-| ✏️ **CRUD de Sesiones** | Crear, editar y eliminar sesiones en `localStorage` |
-| 🎯 **GSAP Animations** | Scroll reveal, cursor personalizado, typed text |
-| 📱 **Responsive** | Funciona en móvil, tablet y desktop |
-| ♿ **Accesibilidad** | ARIA labels, roles semánticos, focus visible |
+* Diseno Dark Premium: Paleta oscura con acentos violeta y cyan, inspirado en Bento Box.
+* Component Loader: Archivos HTML parciales cargados via fetch().
+* Markdown Rendering: Apuntes y bitacoras renderizados de forma dinamica con Marked.js.
+* CMS Local: Panel de administracion (Dashboard) para agregar proyectos desde GitHub, crear certificados y semanas de clases, exportando la data en JSON.
+* Interaccion Dinamica: Animaciones con GSAP, Reveal y Typed.js optimizadas con prefers-reduced-motion.
+* Mobile-First UX: Navegacion inferior (Thumb Zone), tipografia fluida con CSS Clamp y grid automaticos (auto-fit).
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnologico
 
-- **HTML5** — Estructura semántica
-- **CSS3** — Variables CSS, Grid, Flexbox, animaciones
-- **JavaScript ES6+** — Módulos nativos, Fetch API, LocalStorage
-- **[Marked.js](https://marked.js.org/)** — Renderizado de Markdown
-- **[GSAP 3](https://gsap.com/)** + ScrollTrigger — Animaciones avanzadas
-- **[Typed.js](https://mattboldt.com/demos/typed-js/)** — Efecto de escritura
-- **[Vanilla-Tilt](https://micku7zu.github.io/vanilla-tilt.js/)** — Efecto 3D en tarjetas
-- **[Highlight.js](https://highlightjs.org/)** — Resaltado de código en apuntes
+- HTML5 - Estructura semantica
+- CSS3 - Variables CSS, Grid, Flexbox, Container Queries, 100dvh
+- JavaScript ES6+ - Modulos nativos, Fetch API, LocalStorage
+- Marked.js - Renderizado de Markdown
+- Highlight.js - Resaltado de sintaxis en codigo
+- GSAP 3 + ScrollTrigger - Animaciones avanzadas
+- Typed.js - Efecto de escritura en terminal
+- Vanilla-Tilt - Efecto 3D interactivo en tarjetas
 
 ---
 
-## 🚀 Cómo ejecutar localmente
+## Como ejecutar localmente
 
-> **No requiere Node.js ni instalación**. Solo necesitas un servidor local para el `fetch()` de componentes y Markdown.
+No requiere Node.js ni instalacion. Solo necesitas un servidor local para el fetch() de componentes y Markdown.
 
-### Opción 1: Live Server (VS Code)
+Opcion 1: Live Server (VS Code)
+1. Instala la extension Live Server
+2. Clic derecho en index.html -> Open with Live Server
+3. Abre http://localhost:5500
 
-1. Instala la extensión **Live Server**
-2. Clic derecho en `index.html` → **Open with Live Server**
-3. Abre `http://localhost:5500`
-
-### Opción 2: Python
-
-```bash
+Opcion 2: Python
 python -m http.server 3000
-# Abre http://localhost:3000
-```
 
-### Opción 3: Node.js (npx serve)
-
-```bash
+Opcion 3: Node.js
 npx serve .
-```
 
 ---
 
-## 👤 Autor
+## Autor
 
-**Vasco Qori Ramos Mercado**
-- GitHub: [@vasco140123](https://github.com/vasco140123)
-- Correo: [2021200796I@uncp.edu.pe](mailto:2021200796I@uncp.edu.pe)
-- WhatsApp: [+51 923 391 427](https://wa.me/51923391427)
+Vasco Qori Ramos Mercado
+- GitHub: @vasco140123
+- Correo: 2021200796I@uncp.edu.pe
+- WhatsApp: +51 923 391 427
 
 ---
 
-## 📄 Licencia
+## Licencia
 
-Proyecto académico — Todos los derechos reservados.
+Proyecto academico - Todos los derechos reservados.

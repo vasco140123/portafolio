@@ -196,7 +196,7 @@ class CorreoService implements Notificable {
 
     public function enviar(string $destinatario, string $mensaje): bool {
         // Lógica real de envío de email (simulada aquí)
-        echo "📧 Enviando correo a {$destinatario} vía {$this->servidorSMTP}...<br>";
+        echo " Enviando correo a {$destinatario} vía {$this->servidorSMTP}...<br>";
         echo "   Mensaje: {$mensaje}<br>";
         return true; // true si el envío fue exitoso
     }
@@ -216,7 +216,7 @@ class SMSService implements Notificable {
 
     public function enviar(string $destinatario, string $mensaje): bool {
         // Lógica de envío de SMS vía API (simulada)
-        echo "📱 Enviando SMS a {$destinatario} vía {$this->proveedorApi}...<br>";
+        echo " Enviando SMS a {$destinatario} vía {$this->proveedorApi}...<br>";
         echo "   Mensaje: {$mensaje}<br>";
         return true;
     }
@@ -229,7 +229,7 @@ class SMSService implements Notificable {
 // Implementación 3: WhatsApp
 class WhatsAppService implements Notificable {
     public function enviar(string $destinatario, string $mensaje): bool {
-        echo "💬 Enviando WhatsApp a {$destinatario}...<br>";
+        echo " Enviando WhatsApp a {$destinatario}...<br>";
         echo "   Mensaje: {$mensaje}<br>";
         return true;
     }
@@ -243,7 +243,7 @@ class WhatsAppService implements Notificable {
 function notificarUsuario(Notificable $servicio, string $usuario, string $mensaje): void {
     echo "<strong>Canal: " . $servicio->obtenerNombreCanal() . "</strong><br>";
     $resultado = $servicio->enviar($usuario, $mensaje);
-    echo $resultado ? "✅ Notificación enviada exitosamente.<br>" : "❌ Error al enviar.<br>";
+    echo $resultado ? " Notificación enviada exitosamente.<br>" : " Error al enviar.<br>";
     echo "<hr>";
 }
 

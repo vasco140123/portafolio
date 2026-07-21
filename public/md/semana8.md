@@ -113,11 +113,11 @@ El riesgo de **Cross-Site Scripting (XSS)** surge cuando la aplicación muestra 
 
 ```php
 <?php
-// ⚠️ CÓDIGO VULNERABLE A XSS
+// ️ CÓDIGO VULNERABLE A XSS
 echo "<p>Bienvenido, " . $_GET['nombre'] . "</p>";
 // Si nombre = <script>alert('Hackeado')</script>, se ejecuta en el navegador
 
-// ✅ CÓDIGO SEGURO - htmlspecialchars() convierte caracteres especiales en entidades HTML
+//  CÓDIGO SEGURO - htmlspecialchars() convierte caracteres especiales en entidades HTML
 echo "<p>Bienvenido, " . htmlspecialchars($_GET['nombre'], ENT_QUOTES, 'UTF-8') . "</p>";
 // <script> se convierte en &lt;script&gt; — inofensivo para el navegador
 ```
