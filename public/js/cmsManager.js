@@ -40,13 +40,15 @@ function renderPortfolioData() {
   if (bioContainer && globalData.bio) {
     // Reemplazar los <p> estáticos por el texto del bio (separado por saltos de línea)
     const ps = globalData.bio.split('\n\n').map(p => `<p>${escapeHtml(p)}</p>`).join('');
-    // Buscar los <p> actuales y borrarlos, dejando el h3 y los socials
+    // Buscar elementos actuales para no borrarlos
     const card = document.querySelector('.item-bio .about-text-card');
     const h3 = card.querySelector('h3');
+    const academic = card.querySelector('.about-academic');
     const socials = card.querySelector('.about-socials');
     card.innerHTML = '';
     if(h3) card.appendChild(h3);
     card.insertAdjacentHTML('beforeend', ps);
+    if(academic) card.appendChild(academic);
     if(socials) card.appendChild(socials);
   }
 
