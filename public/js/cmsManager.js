@@ -38,17 +38,33 @@ function renderPortfolioData() {
   // Render Bio
   const bioContainer = document.querySelector('.item-bio .about-text-card p');
   if (bioContainer && globalData.bio) {
-    // Reemplazar los <p> estáticos por el texto del bio (separado por saltos de línea)
     const ps = globalData.bio.split('\n\n').map(p => `<p>${escapeHtml(p)}</p>`).join('');
-    // Buscar elementos actuales para no borrarlos
     const card = document.querySelector('.item-bio .about-text-card');
     const h3 = card.querySelector('h3');
-    const academic = card.querySelector('.about-academic');
     const socials = card.querySelector('.about-socials');
+    
+    // Preservar Información Académica — buscar en el DOM actual o reconstruir
+    let academic = card.querySelector('.about-academic');
+    if (!academic) {
+      // Si no se encontró (timing de carga), reconstruir el bloque completo
+      academic = document.createElement('div');
+      academic.className = 'about-academic';
+      academic.innerHTML = `
+        <h4>Información Académica</h4>
+        <ul>
+          <li><span>Asignatura:</span> Desarrollo de Aplicaciones Web (IS093A)</li>
+          <li><span>Institución:</span> UNCP - Facultad de Ingeniería de Sistemas</li>
+          <li><span>Docente Principal:</span> Dr. Jaime Suasnabar Terrel</li>
+          <li><span>Jefe de Práctica:</span> Mg. Miguel Aguilar Coronación</li>
+          <li><span>Ubicación Temporal:</span> Consolidado 2 (Ciclo IX)</li>
+        </ul>
+      `;
+    }
+    
     card.innerHTML = '';
     if(h3) card.appendChild(h3);
     card.insertAdjacentHTML('beforeend', ps);
-    if(academic) card.appendChild(academic);
+    card.appendChild(academic);
     if(socials) card.appendChild(socials);
   }
 
