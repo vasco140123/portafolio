@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Portafolio académico de Vasco Qori Ramos Mercado — Estudiante de Ingeniería de Sistemas en UNCP. Desarrollador Full Stack, análisis de datos y arquitectura web." />
+  <meta name="keywords" content="Vasco Qori, portafolio, desarrollador web, UNCP, ingeniería de sistemas, React, Python, PHP, Laravel" />
+  <meta name="author" content="Vasco Qori Ramos Mercado" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vasco Qori — Portafolio Académico" />
+  <meta property="og:description" content="Estudiante de Ingeniería de Sistemas · UNCP · Desarrollador Full Stack" />
+  <meta property="og:image" content="public/img/perfil.jpeg" />
+
+  <title>Vasco Qori Ramos Mercado — Portafolio</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="public/css/styles.css" />
+  <link rel="stylesheet" href="public/css/navbar.css" />
+  <link rel="stylesheet" href="public/css/hero.css" />
+  <link rel="stylesheet" href="public/css/about.css" />
+  <link rel="stylesheet" href="public/css/skills.css" />
+  <link rel="stylesheet" href="public/css/projects.css" />
+  <link rel="stylesheet" href="public/css/sesiones.css" />
+  <link rel="stylesheet" href="public/css/contact.css" />
+  <link rel="stylesheet" href="public/css/cms.css" />
+
+  <!-- Favicon (emoji) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+
+  <!-- Librerías CDN -->
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <!-- Typed.js -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+  <!-- Vanilla-Tilt -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
+</head>
+
+<body>
+  <!-- ░░ Loader ░░ -->
+  <div id="loader" role="status" aria-label="Cargando portafolio">
+    <div class="loader-name">Vasco Ramos Mercado</div>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ░░ Cursor personalizado ░░ -->
+  <div id="custom-cursor" aria-hidden="true"></div>
+
+  <!-- ░░ Barra de progreso de scroll ░░ -->
+  <div id="scroll-progress" role="progressbar" aria-label="Progreso de lectura"></div>
+
+  <!-- ░░ NAVBAR (inyectado por componente) ░░ -->
+  <div data-component="navbar"></div>
+
+  <!-- ░░ MAIN ░░ -->
+  <main id="main-content">
+    <div data-component="hero"></div>
+    <div data-component="about"></div>
+    <div data-component="skills"></div>
+    <div data-component="projects"></div>
+    <div data-component="sesiones-clase"></div>
+    <div data-component="certifications"></div>
+    <div data-component="contact"></div>
+  </main>
+
+  <!-- ░░ FOOTER (inyectado por componente) ░░ -->
+  <div data-component="footer"></div>
+
+  <!-- ░░ CMS Admin Panel (inyectado por componente) ░░ -->
+  <div data-component="admin-panel"></div>
+
+  <!-- ░░ Scripts ░░ -->
+  <script src="public/js/includeComponents.js"></script>
+  <script src="public/js/animations.js" defer></script>
+  <script src="public/js/cmsManager.js" defer></script>
+</body>
+</html>

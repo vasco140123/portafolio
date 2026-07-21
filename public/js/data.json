@@ -1,0 +1,113 @@
+{
+  "bio": "Soy estudiante de 9no ciclo de Ingeniería de Sistemas en la UNCP. Mi enfoque está en tender puentes entre arquitecturas de software robustas y experiencias de usuario pulidas.\n\nSoy desarrollador web en formación, pero mi cabeza ya lleva tiempo construyendo. Me apasiona transformar ideas en experiencias digitales reales: interfaces que se sienten bien, código que tiene sentido, proyectos que dejan huella. Estoy en mis primeras etapas, sí — pero llego con las ganas de quien sabe exactamente por qué está aquí.",
+  "projects": [
+    {
+      "id": "proj-1784602927477",
+      "repoUrl": "https://github.com/vasco140123/geek-dashboard",
+      "title": "geek dashboard",
+      "description": "dashboard del trabajo de la semana 5 - desarrollo de apps",
+      "tags": [
+        "CSS"
+      ],
+      "size": "normal"
+    },
+    {
+      "id": "proj-1784602960774",
+      "repoUrl": "https://github.com/vasco140123/parcial-",
+      "title": "parcial ",
+      "description": "parcial DAW",
+      "tags": [
+        "Python"
+      ],
+      "size": "normal"
+    },
+    {
+      "id": "proj-1784602978126",
+      "repoUrl": "https://github.com/vasco140123/Sistema_estudiante_parcial",
+      "title": "Sistema_estudiante_parcial",
+      "description": "Sin descripción en GitHub.",
+      "tags": [
+        "Python"
+      ],
+      "size": "normal"
+    },
+    {
+      "id": "proj-1784602991597",
+      "repoUrl": "https://github.com/vasco140123/UNIFICACION-DE-DATOS-PRESUPUESTALES",
+      "title": "UNIFICACION DE DATOS PRESUPUESTALES",
+      "description": "Sin descripción en GitHub.",
+      "tags": [
+        "HTML"
+      ],
+      "size": "normal"
+    },
+    {
+      "id": "proj-1784603003478",
+      "repoUrl": "https://github.com/vasco140123/Tecnolog-a-Web-Backend-y-Servidores-Web",
+      "title": "Tecnolog a Web Backend y Servidores Web",
+      "description": "semana 9 trabajo individual",
+      "tags": [
+        "Java"
+      ],
+      "size": "normal"
+    },
+    {
+      "id": "proj-1784603031802",
+      "repoUrl": "https://github.com/vasco140123/sem-12-Gesti-n-de-Formularios-Django-Admin-Middleware-etc",
+      "title": "sem 12 Gesti n de Formularios Django Admin Middleware etc",
+      "description": "Sin descripción en GitHub.",
+      "tags": [
+        "Python"
+      ],
+      "size": "normal"
+    },
+    {
+      "id": "proj-1784603046694",
+      "repoUrl": "https://github.com/vasco140123/Tecnolog-a-Web-Backend-y-Servidores-Web",
+      "title": "Tecnolog a Web Backend y Servidores Web",
+      "description": "semana 9 trabajo individual",
+      "tags": [
+        "Java"
+      ],
+      "size": "normal"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-1784603720780",
+      "year": "2025",
+      "platform": "cisco networking academy",
+      "title": "Hacker ético",
+      "description": "amplio conocimiento de los requisitos legales y de cumplimiento y es competente en el arte de delimitar, ejecutar, informar evaluaciones de vulnerabilidad y recomendar estrategias de mitigación.",
+      "url": "https://www.credly.com/badges/359c32a4-3383-40c4-9ff8-1255799cd0bb",
+      "size": "normal"
+    },
+    {
+      "id": "cert-1784603823497",
+      "year": "2024",
+      "platform": "cisco networking academy",
+      "title": "Conceptos básicos de redes",
+      "description": "Earner tiene conocimiento de los tipos de redes, cómo funcionan, cómo los dispositivos envían y reciben datos, los tipos de cableado de red, cómo las direcciones IP encuentran información en Internet, cómo funcionan el transporte y las aplicaciones, y ha practicado la construcción de una red inalámbrica doméstica.",
+      "url": "https://www.credly.com/badges/cff2d164-6810-4d8f-b6d0-603ea0e2066a",
+      "size": "normal"
+    },
+    {
+      "id": "cert-1784603907005",
+      "year": "2024",
+      "platform": "cisco networking academy",
+      "title": "Trayectoria profesional de analista junior de ciberseguridad",
+      "description": "técnicas para monitorear y proteger la red, incluidos firewalls, seguridad en la nube y criptografía, están familiarizados con las alertas de seguridad y la gobernanza, y tienen habilidades para realizar evaluaciones de vulnerabilidad de la red",
+      "url": "https://www.credly.com/badges/b9637ed6-35b2-478b-a2eb-7e3018b94fa0",
+      "size": "normal"
+    },
+    {
+      "id": "cert-1784603983123",
+      "year": "2024",
+      "platform": "cisco networking academy",
+      "title": "Trayectoria profesional del técnico de redes",
+      "description": "tiene conocimientos sobre los fundamentos de las redes, cómo se comunican los dispositivos, cableado, direccionamiento y servicios de red, conceptos básicos de configuración de dispositivos Cisco",
+      "url": "https://www.credly.com/badges/fba1e81d-2dc3-4eed-b8b3-21b3495825bb",
+      "size": "horizontal"
+    }
+  ]
+}

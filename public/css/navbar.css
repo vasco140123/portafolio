@@ -1,0 +1,133 @@
+/* ============================================
+   NAVBAR (Bottom Nav Mobile / Sutil Glassmorphism Desktop)
+   ============================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: padding var(--transition), background var(--transition), backdrop-filter var(--transition);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  padding: 1rem 3rem;
+  background: rgba(5, 8, 16, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.navbar-logo {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.04em;
+  padding: 0.5rem; /* Touch target invisible */
+  margin: -0.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 500;
+  transition: color var(--transition);
+  padding: 0.5rem; /* Touch target invisible */
+  margin: -0.5rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--lime);
+}
+
+/* Botón especial minimalista */
+.navbar-links a.nav-clases {
+  color: var(--violet);
+  border: 1px solid rgba(139,92,246,0.3);
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  margin: 0;
+}
+.navbar-links a.nav-clases:hover {
+  background: rgba(139,92,246,0.1);
+}
+
+/* Mobile Toggle */
+.navbar-toggle {
+  display: none;
+  background: var(--color-surface);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 12px;
+  min-width: 52px;
+  min-height: 52px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform var(--transition);
+}
+.navbar-toggle:active { transform: scale(0.95); }
+.navbar-toggle svg { width: 24px; height: 24px; }
+
+/* MOBILE BOTTOM NAV (Thumb Zone UX) */
+@media (max-width: 768px) {
+  .navbar { padding: 1rem 1.5rem; }
+  .navbar.scrolled { padding: 1rem 1.5rem; border: none; }
+  
+  .navbar-toggle { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: max(2rem, env(safe-area-inset-bottom));
+    right: 1.5rem;
+    z-index: 1001;
+  }
+  
+  .navbar-links {
+    position: fixed;
+    bottom: max(6rem, env(safe-area-inset-bottom) + 5rem);
+    right: 1.5rem;
+    width: auto;
+    background: rgba(10, 14, 26, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: translateY(20px) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--transition), opacity var(--transition);
+    transform-origin: bottom right;
+  }
+  
+  .navbar-links.open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

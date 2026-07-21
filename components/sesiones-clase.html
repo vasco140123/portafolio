@@ -1,0 +1,53 @@
+<section class="sesiones-clase" id="sesiones" aria-label="Bitácora de Clases">
+  <div class="section-container">
+    
+    <span class="section-eyebrow" data-reveal>15 semanas de clase del curso de DAW detalladas a continuación</span>
+    <h2 class="section-title" data-reveal>La Bitácora.</h2>
+    
+    <!-- Timeline estático de las 15 semanas (Neubrutalism) -->
+    <div class="sesiones-timeline" id="timeline-estatico" data-reveal>
+      <!-- Se inyectarán dinámicamente por JS en animations.js para no saturar el HTML, 
+           pero como es vanilla JS puro, dejaremos la plantilla lista. -->
+    </div>
+
+    <!-- Timeline Dinámico (CRUD) -->
+    <div class="sesiones-timeline sesiones-timeline--dynamic" id="timeline-dinamico" data-reveal>
+      <!-- Aquí entran las sesiones creadas por el usuario localmente -->
+    </div>
+
+    <div class="sesiones-actions" data-reveal>
+      <a href="leccion.html?semana=1" class="btn-primary" aria-label="Ir a las clases semanales">Ir a las Clases →</a>
+    </div>
+
+  </div>
+
+  <!-- Modal CRUD -->
+  <dialog id="modal-sesion" class="modal-crud" aria-labelledby="modal-titulo">
+    <div class="modal-content">
+      <h3 id="modal-titulo" class="modal-title">Nueva Sesión Local</h3>
+      <form id="form-sesion">
+        <input type="hidden" id="sesion-id" />
+        
+        <div class="form-group">
+          <label for="sesion-tema">Tema de la sesión</label>
+          <input type="text" id="sesion-tema" required placeholder="Ej: Introducción a WebSockets" />
+        </div>
+        
+        <div class="form-group">
+          <label for="sesion-fecha">Fecha</label>
+          <input type="text" id="sesion-fecha" required placeholder="Ej: 20 de Julio" />
+        </div>
+        
+        <div class="form-group">
+          <label for="sesion-tags">Herramientas (separadas por coma)</label>
+          <input type="text" id="sesion-tags" placeholder="Ej: HTML, CSS, JS" />
+        </div>
+        
+        <div class="modal-actions">
+          <button type="button" class="btn-text" id="btn-cerrar-modal">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+</section>

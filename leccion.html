@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Apuntes de clase de Vasco Qori Ramos Mercado — Curso de Desarrollo de Aplicaciones Web · UNCP 2025-I" />
+  <meta name="robots" content="noindex" />
+
+  <title>Bitácora de Clases — Vasco Qori</title>
+
+  <!-- CSS base + navbar + leccion -->
+  <link rel="stylesheet" href="public/css/styles.css" />
+  <link rel="stylesheet" href="public/css/navbar.css" />
+  <link rel="stylesheet" href="public/css/leccion.css" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+
+  <!-- Marked.js: parseador de Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Highlight.js (resaltado de código): core + estilos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+
+<body>
+  <!-- Cursor personalizado -->
+  <div id="custom-cursor" aria-hidden="true"></div>
+
+  <!-- Navbar (cargado por lessonManager) -->
+  <div data-component="navbar"></div>
+
+  <!-- Contenido principal de la lección -->
+  <main class="leccion-page" id="main-leccion">
+    <div class="leccion-container">
+
+      <!-- Barra de navegación entre semanas -->
+      <nav class="leccion-nav-bar" aria-label="Navegación entre semanas">
+        <a href="index.html" class="btn-leccion-nav" id="btn-volver">
+          ← Portafolio
+        </a>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;">
+          <span id="leccion-week-label" style="font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--text-primary)">
+            Semana ...
+          </span>
+          <span id="leccion-progress" style="font-size:0.7rem;color:var(--text-muted)">
+            — / 15
+          </span>
+        </div>
+
+        <div class="leccion-pager">
+          <button class="btn-leccion-nav" id="btn-anterior" aria-label="Semana anterior">← Ant.</button>
+          <button class="btn-leccion-nav" id="btn-siguiente" aria-label="Semana siguiente">Sig. →</button>
+        </div>
+      </nav>
+
+      <!-- Aquí se inyecta el Markdown renderizado -->
+      <article class="markdown-body" id="leccion-content" role="main">
+        <p class="loading-text">Cargando apuntes...</p>
+      </article>
+
+      <!-- Navegación repetida al final -->
+      <nav class="leccion-nav-bar" style="margin-top:3rem;" aria-label="Navegación entre semanas (pie)">
+        <a href="index.html" class="btn-leccion-nav">← Portafolio</a>
+        <div class="leccion-pager">
+          <button class="btn-leccion-nav" id="btn-anterior-bottom" aria-label="Semana anterior" onclick="document.getElementById('btn-anterior').click()">← Ant.</button>
+          <button class="btn-leccion-nav" id="btn-siguiente-bottom" aria-label="Semana siguiente" onclick="document.getElementById('btn-siguiente').click()">Sig. →</button>
+        </div>
+      </nav>
+
+    </div>
+  </main>
+
+  <!-- Script de lección -->
+  <script src="public/js/lessonManager.js"></script>
+</body>
+</html>

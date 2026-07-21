@@ -1,0 +1,166 @@
+/* ============================================
+   SESIONES (Tactile + Neubrutalist)
+   ============================================ */
+.sesiones-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  margin-top: 3rem;
+  padding-left: 2rem;
+  border-left: 4px solid var(--violet); /* Línea gruesa neubrutalist */
+}
+
+/* Base de la tarjeta de sesión */
+.sesion-card {
+  position: relative;
+  background-color: var(--color-surface);
+  /* Textura de cuaderno (Tactile) */
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 31px,
+    rgba(255, 255, 255, 0.05) 31px,
+    rgba(255, 255, 255, 0.05) 32px
+  );
+  border: 2px solid var(--violet);
+  padding: 2rem;
+  border-radius: 4px; /* Bordes menos redondeados */
+  text-decoration: none;
+  display: block;
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Sombra dura sin blur (Neubrutalism) */
+.sesion-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px var(--violet);
+}
+
+/* Marca de agua gigante (Identidad Única) */
+.sesion-card::before {
+  content: attr(data-number);
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  font-family: var(--font-display);
+  font-size: 140px;
+  font-weight: 900;
+  color: var(--text-primary);
+  opacity: 0.04;
+  line-height: 1;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 0.2s;
+}
+.sesion-card:hover::before { opacity: 0.08; }
+
+/* Contenido de la sesión */
+.sesion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.sesion-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.sesion-date {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(6,182,212,0.1);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--cyan);
+}
+
+.sesion-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sesion-tag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-bg);
+  background: var(--text-secondary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+}
+
+/* Acciones Dinámicas */
+.sesiones-actions { margin-top: 3rem; display: flex; justify-content: center; }
+
+/* ============================================
+   MODAL CRUD (Neubrutalism)
+   ============================================ */
+.modal-crud {
+  margin: auto;
+  padding: 0;
+  border: 2px solid var(--cyan);
+  background: var(--color-surface);
+  border-radius: 4px;
+  box-shadow: 8px 8px 0px var(--cyan);
+  color: var(--text-primary);
+  max-width: 500px;
+  width: 90%;
+}
+.modal-crud::backdrop { background: rgba(5, 8, 16, 0.8); backdrop-filter: blur(5px); }
+
+.modal-content { padding: 2rem; }
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--cyan);
+}
+
+.form-group { margin-bottom: 1.5rem; }
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-bg);
+  border: 2px solid var(--text-muted);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus { border-color: var(--cyan); }
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .sesiones-timeline { padding-left: 1rem; }
+  .sesion-card { padding: 1.5rem; }
+  .sesion-card::before { font-size: 100px; top: -10px; }
+  .sesion-header { flex-direction: column; gap: 0.5rem; }
+}

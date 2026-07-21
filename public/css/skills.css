@@ -1,0 +1,65 @@
+/* ============================================
+   SKILLS (Dark Neumorphism)
+   ============================================ */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.skill-chip {
+  background-color: var(--color-bg); /* Mismo que el fondo */
+  padding: 1rem 1.5rem;
+  border-radius: 50px; /* Estilo pill/chip */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  /* Neumorfismo oscuro: Sombras claras arriba-izq, oscuras abajo-der */
+  box-shadow: 
+    -4px -4px 10px rgba(255, 255, 255, 0.02),
+    4px 4px 12px rgba(0, 0, 0, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.05),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.5);
+  
+  border: 1px solid rgba(255,255,255,0.01); /* Borde mínimo imperceptible */
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+.skill-chip:hover {
+  /* Efecto "presionado" suave */
+  box-shadow: 
+    -2px -2px 5px rgba(255, 255, 255, 0.01),
+    2px 2px 5px rgba(0, 0, 0, 0.9),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.6),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.02);
+  transform: translateY(1px);
+}
+
+.skill-icon {
+  width: 24px;
+  height: 24px;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: opacity 0.2s, filter 0.2s;
+}
+
+.skill-name {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+/* En hover, restaurar color original sutílmente y hacer más brillante */
+.skill-chip:hover .skill-icon {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+.skill-chip:hover .skill-name {
+  color: var(--text-primary);
+}

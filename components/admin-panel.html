@@ -1,0 +1,94 @@
+<!-- Modal de Contraseña -->
+<div id="cms-auth-modal" class="cms-overlay" style="align-items: center; justify-content: center;">
+  <div class="modal-content" style="background:var(--color-surface); padding:3rem; border:2px solid var(--lime); border-radius:8px; width:90%; max-width:400px; box-shadow:8px 8px 0px var(--lime);">
+    <h3 class="modal-title" style="color:var(--lime); margin-bottom:0.5rem; font-family:var(--font-display); font-size:1.5rem;">Acceso Restringido</h3>
+    <p style="margin-bottom:1.5rem;color:var(--text-secondary); font-size:0.9rem;">Panel de edición del portafolio.</p>
+    <form id="cms-auth-form">
+      <div class="form-group" style="margin-bottom:1.5rem;">
+        <label for="cms-password" style="display:block; margin-bottom:0.5rem; color:var(--text-muted); text-transform:uppercase; font-size:0.8rem; font-weight:700;">Contraseña</label>
+        <input type="password" id="cms-password" required placeholder="••••••••" style="width:100%; padding:0.8rem; background:var(--color-bg); border:1px solid rgba(255,255,255,0.2); color:#fff; outline:none;" />
+      </div>
+      <div class="modal-actions" style="display:flex; justify-content:flex-end; gap:1rem;">
+        <button type="button" class="btn-text" id="btn-close-auth">Cancelar</button>
+        <button type="submit" class="btn-primary" style="background:transparent; color:var(--lime); border:1px solid var(--lime);">Entrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Dashboard CMS -->
+<div id="cms-dashboard" class="cms-overlay">
+  <div class="cms-sidebar">
+    <h2>Panel CMS</h2>
+    <ul class="cms-nav">
+      <li><button class="cms-tab-btn active" data-tab="tab-bio">Biografía</button></li>
+      <li><button class="cms-tab-btn" data-tab="tab-projects">Proyectos (GitHub)</button></li>
+      <li><button class="cms-tab-btn" data-tab="tab-certs">Certificados</button></li>
+      <li><button class="cms-tab-btn" data-tab="tab-sesiones">Bitácora de Clases</button></li>
+    </ul>
+    
+    <div class="cms-sidebar-footer">
+      <button id="btn-export-json" class="btn-primary" style="width:100%;margin-bottom:1rem;background:var(--lime);color:#000;border:none;">⬇ Exportar para Profesor</button>
+      <button id="btn-close-dashboard" class="btn-text">Cerrar Panel</button>
+    </div>
+  </div>
+
+  <div class="cms-content">
+    
+    <!-- Tab: Bio -->
+    <section id="tab-bio" class="cms-tab active">
+      <h3>Editar Biografía</h3>
+      <p style="margin-bottom:1rem;">Edita tu texto principal. Los cambios se reflejarán en vivo al cerrar el panel.</p>
+      <textarea id="cms-bio-text" rows="10" style="width:100%;background:#111;color:#fff;padding:1rem;border:1px solid #333;font-family:inherit;"></textarea>
+      <button id="btn-save-bio" class="btn-primary" style="margin-top:1rem;">Guardar Biografía</button>
+    </section>
+
+    <!-- Tab: Proyectos -->
+    <section id="tab-projects" class="cms-tab">
+      <h3>Proyectos Personales</h3>
+      <div style="background:rgba(255,255,255,0.05);padding:1.5rem;border-radius:8px;margin-bottom:2rem;">
+        <h4>Añadir desde GitHub</h4>
+        <div style="display:flex;gap:1rem;margin-top:1rem;">
+          <input type="text" id="cms-github-url" placeholder="https://github.com/vasco140123/Repo..." style="flex:1;padding:0.5rem;background:#111;color:#fff;border:1px solid #444;" />
+          <button id="btn-fetch-github" class="btn-primary">Extraer Info</button>
+        </div>
+        <p id="github-status" style="margin-top:0.5rem;font-size:0.85rem;color:var(--lime);"></p>
+      </div>
+
+      <div id="cms-projects-list" class="cms-list"></div>
+    </section>
+
+    <!-- Tab: Certificados -->
+    <section id="tab-certs" class="cms-tab">
+      <h3>Certificados</h3>
+      <div style="background:rgba(255,255,255,0.05);padding:1.5rem;border-radius:8px;margin-bottom:2rem;">
+        <h4>Nuevo Certificado</h4>
+        <div class="form-group"><input type="text" id="cert-title" placeholder="Título del Certificado" /></div>
+        <div class="form-group"><input type="text" id="cert-platform" placeholder="Plataforma (ej: Udemy)" /></div>
+        <div class="form-group"><input type="text" id="cert-year" placeholder="Año" /></div>
+        <div class="form-group"><input type="text" id="cert-desc" placeholder="Descripción corta (Opcional)" /></div>
+        <div class="form-group"><input type="url" id="cert-url" placeholder="Enlace de la credencial en línea (Opcional)" /></div>
+        <button id="btn-add-cert" class="btn-primary">Añadir Certificado</button>
+      </div>
+      
+      <div id="cms-certs-list" class="cms-list"></div>
+    </section>
+
+    <!-- Tab: Sesiones -->
+    <section id="tab-sesiones" class="cms-tab">
+      <h3>Bitácora de Clases</h3>
+      
+      <div style="background:rgba(255,255,255,0.05);padding:1.5rem;border-radius:8px;margin-bottom:2rem;">
+        <h4>Añadir Nueva Semana</h4>
+        <div class="form-group"><input type="text" id="sesion-num" placeholder="Número de Semana (ej: 16)" /></div>
+        <div class="form-group"><input type="text" id="sesion-tema" placeholder="Tema Principal" /></div>
+        <div class="form-group"><input type="text" id="sesion-fecha" placeholder="Fecha (ej: 20 - 24 jul)" /></div>
+        <div class="form-group"><input type="text" id="sesion-tags" placeholder="Herramientas separadas por coma" /></div>
+        <button id="btn-add-sesion" class="btn-primary">Añadir Semana</button>
+      </div>
+
+      <div id="cms-sesiones-list" class="cms-list"></div>
+    </section>
+
+  </div>
+</div>

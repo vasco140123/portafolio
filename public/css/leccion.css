@@ -1,0 +1,199 @@
+/* ============================================
+   LECCION — Página de detalle de apuntes Markdown
+   ============================================ */
+.leccion-page {
+  min-height: 100vh;
+  padding: 6rem 1.5rem 4rem;
+}
+
+.leccion-container {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Barra de navegación */
+.leccion-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.btn-leccion-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.25);
+  color: var(--violet-l);
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.btn-leccion-nav:hover {
+  background: rgba(139,92,246,0.2);
+  border-color: var(--violet);
+  transform: translateY(-1px);
+}
+
+.btn-leccion-nav:disabled,
+.btn-leccion-nav.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.leccion-pager {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Contenido Markdown */
+.markdown-body {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.markdown-body h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, var(--violet-l) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.markdown-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.markdown-body h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--violet-l);
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-body p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.markdown-body strong {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.markdown-body ul, .markdown-body ol {
+  margin: 0.5rem 0 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.markdown-body li { color: var(--text-secondary); }
+
+.markdown-body li::marker { color: var(--violet); }
+
+.markdown-body blockquote {
+  border-left: 3px solid var(--violet);
+  padding: 0.75rem 1rem;
+  background: rgba(139,92,246,0.07);
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin: 1.25rem 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.markdown-body hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2rem 0;
+}
+
+/* Bloques de código */
+.markdown-body pre {
+  background: rgba(5, 8, 16, 0.9);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  position: relative;
+}
+
+.markdown-body pre code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  color: #86e1fc;
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  white-space: pre;
+}
+
+.markdown-body code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85em;
+  background: rgba(139,92,246,0.12);
+  color: var(--violet-l);
+  padding: 0.15em 0.4em;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(139,92,246,0.2);
+}
+
+/* Estado de carga */
+.loading-text {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: 3rem 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Estado de error */
+.leccion-error {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.leccion-error h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.leccion-error p { color: var(--text-secondary); margin-bottom: 1rem; }
+
+.leccion-error a {
+  color: var(--violet-l);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.leccion-error a:hover { text-decoration: underline; }

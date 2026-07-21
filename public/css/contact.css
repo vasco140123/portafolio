@@ -1,0 +1,60 @@
+/* ============================================
+   CONTACT (Glassmorphism Oscuro)
+   ============================================ */
+.contact-card {
+  background: radial-gradient(circle at top, rgba(139,92,246,0.1) 0%, rgba(5,8,16,0.4) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-top-color: rgba(139, 92, 246, 0.3); /* Borde superior iluminado */
+  border-radius: 8px; /* Radio pequeño para dar más seriedad */
+  padding: 6rem 4rem;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contact-header {
+  margin-bottom: 1rem;
+}
+.contact-header .section-eyebrow {
+  margin-bottom: 1.5rem;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.contact-desc {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  max-width: 500px;
+  line-height: 1.8;
+}
+
+.contact-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-main-btn {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .contact-card { padding: 4rem 2rem; }
+  .contact-links { flex-direction: column; gap: 1.5rem; }
+}
