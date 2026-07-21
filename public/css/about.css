@@ -52,6 +52,34 @@
   line-height: 1.8;
 }
 
+.about-academic {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.about-academic h4 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+.about-academic ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.about-academic li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.about-academic li span {
+  font-weight: 700;
+  color: var(--violet);
+  display: inline-block;
+  min-width: 135px;
+}
+
 .about-socials {
   display: flex;
   gap: 1.5rem;
