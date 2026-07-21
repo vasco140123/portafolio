@@ -1,6 +1,6 @@
 # Portafolio Academico - Vasco Qori Ramos Mercado
 
-Estudiante de Ingenieria de Sistemas | Universidad Nacional del Centro del Peru (UNCP) | 5to Ciclo
+Estudiante de Ingenieria de Sistemas | Universidad Nacional del Centro del Peru (UNCP) | 9no Ciclo
 
 ---
 
