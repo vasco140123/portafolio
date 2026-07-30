@@ -34,10 +34,12 @@
 
 /* Columna 2: Bloque de Texto */
 .item-bio {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.04);
   padding: 3rem 2.5rem;
   border-radius: 4px;
   border-left: 2px solid var(--lime); /* Acento color limón */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 .about-text-card h3 {
   font-family: var(--font-display);
@@ -50,34 +52,6 @@
   font-size: 1.05rem;
   margin-bottom: 1.25rem;
   line-height: 1.8;
-}
-
-.about-academic {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-.about-academic h4 {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-}
-.about-academic ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.about-academic li {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
-.about-academic li span {
-  font-weight: 700;
-  color: var(--violet);
-  display: inline-block;
-  min-width: 135px;
 }
 
 .about-socials {

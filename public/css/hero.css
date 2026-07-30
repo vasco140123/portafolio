@@ -26,6 +26,12 @@
   flex-direction: column;
   gap: clamp(1.5rem, 3vw, 2rem);
   z-index: 2;
+  background: rgba(5, 8, 16, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .hero-title {
@@ -94,7 +100,14 @@
   min-height: 44px; /* Touch target */
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
   transition: color var(--transition);
+}
+
+.btn-github svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 /* Columna Derecha: Foto Asimétrica */
