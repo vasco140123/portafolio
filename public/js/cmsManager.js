@@ -73,47 +73,45 @@ function renderPortfolioData() {
   if (projContainer && globalData.projects) {
     projContainer.innerHTML = '';
     globalData.projects.forEach((proj, idx) => {
-      const tetris = ['feature', 'normal', 'vertical', 'normal', 'horizontal', 'normal'];
-      const sizeCls = tetris[idx % tetris.length];
-      const cls = idx === 0 ? 'feature' : sizeCls;
-      const tags = proj.tags.map(t => `<span class="bento-tag">${t}</span>`).join('');
+      const tags = proj.tags.map(t => t).join(', ');
       projContainer.innerHTML += `
-        <article class="bento-card ${cls !== 'normal' ? cls : ''}" data-tilt>
-          <div class="bento-content">
-            <h3 class="bento-title">${escapeHtml(proj.title)}</h3>
-            <p class="bento-desc">${escapeHtml(proj.description)}</p>
-            <div class="bento-tags">${tags}</div>
-            <a href="${proj.repoUrl}" target="_blank" class="bento-link">Ver Código ↗</a>
+        <div class="magic-bento-card magic-bento-card--border-glow" style="background-color:#120F17;--glow-color:163,230,53">
+          <div class="magic-bento-card__header">
+            <div class="magic-bento-card__label">${escapeHtml(tags)}</div>
           </div>
-        </article>
+          <div class="magic-bento-card__content">
+            <h2 class="magic-bento-card__title">${escapeHtml(proj.title)}</h2>
+            <p class="magic-bento-card__description">${escapeHtml(proj.description)}</p>
+            <div class="magic-bento-card__tech">Ver Codigo ↗</div>
+          </div>
+          <a href="${proj.repoUrl}" target="_blank" class="magic-bento-card__link" aria-label="${escapeHtml(proj.title)} GitHub"></a>
+        </div>
       `;
     });
+    // Re-init MagicBento on CMS-rendered cards
+    window.dispatchEvent(new Event('portfolio-data-rendered'));
   }
 
   // Render Certifications (Bento)
   const certContainer = document.getElementById('certifications-grid');
   if (certContainer && globalData.certifications) {
     certContainer.innerHTML = '';
-    globalData.certifications.forEach((cert, idx) => {
-      // Forzar patrón de ladrillo asimétrico basado en el índice
-      const certTetris = ['horizontal', 'normal', 'normal', 'vertical', 'normal', 'horizontal'];
-      const certSize = certTetris[idx % certTetris.length];
-      const cls = 'cert-card ' + certSize;
-      const linkStyle = cert.url ? `cursor: pointer;` : '';
+    globalData.certifications.forEach((cert) => {
       const onClickAttr = cert.url ? `onclick="window.open('${escapeHtml(cert.url)}', '_blank')"` : '';
-      const urlHtml = cert.url ? `<span style="margin-top:auto; font-weight:600; color:var(--cyan); font-size:0.85rem; padding:12px 0;">Ver Credencial ↗</span>` : '';
-      
       certContainer.innerHTML += `
-        <article class="${cls}" data-tilt ${onClickAttr} style="${linkStyle}">
-          <div class="cert-content">
-            <span class="cert-tag">${cert.year} · ${escapeHtml(cert.platform)}</span>
-            <h3 class="cert-title">${escapeHtml(cert.title)}</h3>
-            ${cert.description ? `<p class="cert-desc" style="${cert.url ? 'margin-top:0;' : ''}">${escapeHtml(cert.description)}</p>` : ''}
-            ${urlHtml}
+        <div class="magic-bento-card magic-bento-card--border-glow" style="--glow-color:6,182,212" ${onClickAttr}>
+          <div class="magic-bento-card__header">
+            <div class="magic-bento-card__label">${cert.year} · ${escapeHtml(cert.platform)}</div>
           </div>
-        </article>
+          <div class="magic-bento-card__content">
+            <h2 class="magic-bento-card__title">${escapeHtml(cert.title)}</h2>
+            ${cert.description ? `<p class="magic-bento-card__description">${escapeHtml(cert.description)}</p>` : ''}
+          </div>
+        </div>
       `;
     });
+    // Re-init MagicBento on CMS-rendered cards
+    window.dispatchEvent(new Event('portfolio-data-rendered'));
   }
 
   // Actualizar Stats

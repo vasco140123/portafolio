@@ -139,5 +139,14 @@
     };
   }
 
-  document.querySelectorAll('.pc-card-wrapper').forEach(initProfileCard);
+  function initAll() {
+    document.querySelectorAll('.pc-card-wrapper').forEach(initProfileCard);
+  }
+
+  // Wait for components to be injected via fetch
+  if (document.querySelector('.pc-card-wrapper')) {
+    initAll();
+  } else {
+    window.addEventListener('components-loaded', initAll);
+  }
 })();

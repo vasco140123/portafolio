@@ -209,10 +209,13 @@
     }
   }
 
-  // Run when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
+  // Wait for components to be injected via fetch
+  if (document.querySelector('.magic-bento-card')) {
     init();
+  } else {
+    window.addEventListener('components-loaded', init);
   }
+
+  // Re-init when CMS renders new content
+  window.addEventListener('portfolio-data-rendered', init);
 })();
