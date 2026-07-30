@@ -11,7 +11,7 @@
   /* Acentos */
   --violet:           #8b5cf6;
   --cyan:             #06b6d4;
-  --lime:             #a3e635; /* Para Typed.js */
+  --lime:             #a3e635;
   
   /* Texto */
   --text-primary:     #f8fafc;
@@ -52,7 +52,10 @@
 /* Reset Absoluto */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; background: transparent; }
+html {
+  font-size: 16px;
+  background: #050810;
+}
 
 body {
   font-family: var(--font-body);
@@ -66,7 +69,7 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* Scrollbar invisible/mínimo para look nativo */
+/* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #050810; }
 ::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 2px; }
@@ -74,28 +77,32 @@ body {
 ::selection { background: var(--violet); color: #fff; }
 
 /* ============================================
-   UTILITARIOS GLOBALES
+   LETTERGLITCH BACKGROUND
    ============================================ */
-
-/* LetterGlitch Background */
 #letter-glitch-bg {
   position: fixed;
-  inset: 0;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
-  background: #000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #050810;
   overflow: hidden;
   pointer-events: none;
 }
 
-/* Fondo semi-transparente en secciones para legibilidad sobre el glitch */
-section {
-  position: relative;
-  z-index: 1;
-  background: rgba(5, 8, 16, 0.92);
+#letter-glitch-bg canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
+/* ============================================
+   UTILITARIOS GLOBALES
+   ============================================ */
 .section-container {
   max-width: var(--container-max);
   margin: 0 auto;
@@ -199,22 +206,37 @@ section {
 }
 
 /* ============================================
+   SECCIONES — Fondo oscuro semi-transparente para legibilidad
+   ============================================ */
+#main-content section,
+[data-component="navbar"],
+[data-component="footer"],
+[data-component="admin-panel"] {
+  position: relative;
+  z-index: 1;
+}
+
+#main-content > div > section {
+  background: rgba(5, 8, 16, 0.90);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+#main-content > div > section:first-child {
+  border-top: none;
+}
+
+/* ============================================
    MOBILE-FIRST UX OVERRIDES
    ============================================ */
-
-/* Touch devices: disable custom cursor and hover stickiness */
 @media (pointer: coarse) {
   #custom-cursor { display: none !important; }
   * { cursor: auto !important; }
-  
-  /* Reset hovers that scale (use active instead for tactile feedback) */
   .btn-primary:active,
   .bento-card:active {
     transform: scale(0.98);
   }
 }
 
-/* Performance: Disable animations for battery/motion-sickness */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
