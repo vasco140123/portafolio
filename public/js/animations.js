@@ -3,50 +3,6 @@
  * Inicializa todas las animaciones del portafolio, cursor, y genera el timeline.
  */
 
-// ─── Generación de Sesiones Estáticas ─────────────────────────────────────────
-(function generateStaticSessions() {
-  const timeline = document.getElementById('timeline-estatico');
-  if (!timeline) return;
-
-  const semanasInfo = [
-    { num: 1, topic: "Configuración Inicial: Servidor y Entorno (PHP, VS Code)", date: "06 - 10 abr", tags: ["XAMPP Base", "VS Code", "Intro PHP"] },
-    { num: 2, topic: "Lógica Backend: Tipos, Control y Funciones", date: "13 - 17 abr", tags: ["PHP Core", "Algoritmia"] },
-    { num: 3, topic: "Paradigma de Objetos: Encapsulamiento y Polimorfismo", date: "20 - 24 abr", tags: ["POO PHP", "Abstracción"] },
-    { num: 4, topic: "Persistencia: Bases de Datos y Seguridad PDO", date: "27 abr - 01 may", tags: ["MySQL Server", "PDO", "SQLi Defenses"] },
-    { num: 5, topic: "Arquitectura de Software: Patrón Modelo-Vista-Controlador", date: "04 - 08 may", tags: ["MVC Design", "Routing", "Despliegue"] },
-    { num: 6, topic: "Gestión de Dependencias (Composer) y Endpoints API", date: "11 - 15 may", tags: ["Composer", "REST API", "JSON Format"] },
-    { num: 7, topic: "Inmersión en Laravel: Rutas, Vistas y Eloquent", date: "18 - 22 may", tags: ["Laravel Framework", "Blade", "Modelado"] },
-    { num: 8, topic: "Proyecto Consolidado: Evaluación Parcial", date: "25 - 29 may", tags: ["Evaluación", "Integración"] },
-    { num: 9, topic: "Ecosistemas Backend: PHP frente a Java (Tomcat)", date: "02 - 06 jun", tags: ["Apache", "Java Web", "Comparativa"] },
-    { num: 10, topic: "Transición a Python: Sintaxis y Paradigma", date: "09 - 13 jun", tags: ["Python 3", "Colecciones"] },
-    { num: 11, topic: "Framework Django: Arquitectura MTV y ORM", date: "16 - 20 jun", tags: ["Django Base", "MTV Pattern", "ORM"] },
-    { num: 12, topic: "Seguridad y Gestión: Formularios y Middlewares", date: "23 - 27 jun", tags: ["Django Forms", "Sesiones", "Middlewares"] },
-    { num: 13, topic: "Construcción de APIs con Django REST Framework", date: "30 jun - 04 jul", tags: ["DRF", "Web API", "CORS/Auth"] },
-    { num: 14, topic: "Despliegue Avanzado: Contenedores y Kubernetes", date: "07 - 11 jul", tags: ["Docker", "Orquestación", "Microservices"] },
-    { num: 15, topic: "Cierre de Ciclo: Presentación de Proyectos RSU", date: "14 - 18 jul", tags: ["Proyecto RSU", "Sustentación"] }
-  ];
-
-  let html = '';
-  semanasInfo.forEach(s => {
-    const numStr = s.num < 10 ? `0${s.num}` : `${s.num}`;
-    const tagsHTML = s.tags.map(t => `<span class="sesion-tag">${t}</span>`).join('');
-    
-    html += `
-      <a href="leccion.html?semana=${s.num}" class="sesion-card" data-number="S${numStr}">
-        <div class="sesion-header">
-          <h3 class="sesion-title">Semana ${s.num}: ${s.topic}</h3>
-          <span class="sesion-date">${s.date}</span>
-        </div>
-        <div class="sesion-tags">
-          ${tagsHTML}
-        </div>
-      </a>
-    `;
-  });
-
-  timeline.innerHTML = html;
-})();
-
 // ─── Loader ───────────────────────────────────────────────────────────────────
 (function initLoader() {
   const loader = document.getElementById('loader');

@@ -116,28 +116,6 @@ function renderPortfolioData() {
     });
   }
 
-  // Render Sesiones Dinámicas (Bitácora)
-  const sesionContainer = document.getElementById('timeline-dinamico');
-  if (sesionContainer && globalData.sesiones) {
-    sesionContainer.innerHTML = '';
-    globalData.sesiones.forEach(ses => {
-      const tagsHtml = ses.tags.map(t => `<span class="sesion-tag">${escapeHtml(t.trim())}</span>`).join('');
-      sesionContainer.innerHTML += `
-        <article class="sesion-item">
-          <div class="sesion-marker"></div>
-          <div class="sesion-content">
-            <div class="sesion-header">
-              <span class="sesion-week">Semana ${escapeHtml(ses.num)}</span>
-              <span class="sesion-date">${escapeHtml(ses.fecha)}</span>
-            </div>
-            <h3 class="sesion-topic">${escapeHtml(ses.tema)}</h3>
-            <div class="sesion-tags">${tagsHtml}</div>
-          </div>
-        </article>
-      `;
-    });
-  }
-
   // Actualizar Stats
   const statProjects = document.querySelectorAll('.stat-value');
   if (statProjects.length >= 3) {
@@ -258,11 +236,6 @@ function bindCMSEvents() {
     btnAddCert.addEventListener('click', addCert);
   }
 
-  // Add Sesion
-  const btnAddSesion = document.getElementById('btn-add-sesion');
-  if (btnAddSesion) {
-    btnAddSesion.addEventListener('click', addSesion);
-  }
 }
 
 function initAdminDashboard() {
@@ -301,22 +274,6 @@ function renderAdminLists() {
         </div>
         <div class="cms-item-actions">
           <button onclick="removeCert('${c.id}')">Eliminar</button>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  // Sesiones
-  const sList = document.getElementById('cms-sesiones-list');
-  if (sList && globalData.sesiones) {
-    sList.innerHTML = globalData.sesiones.map(s => `
-      <div class="cms-list-item">
-        <div>
-          <h5>Semana ${escapeHtml(s.num)}: ${escapeHtml(s.tema)}</h5>
-          <p>${escapeHtml(s.fecha)}</p>
-        </div>
-        <div class="cms-item-actions">
-          <button onclick="removeSesion('${s.id}')">Eliminar</button>
         </div>
       </div>
     `).join('');
@@ -410,33 +367,6 @@ function addCert() {
   document.getElementById('cert-url').value = '';
 }
 
-function addSesion() {
-  const num = document.getElementById('sesion-num').value.trim();
-  const tema = document.getElementById('sesion-tema').value.trim();
-  const fecha = document.getElementById('sesion-fecha').value.trim();
-  const tagsStr = document.getElementById('sesion-tags').value.trim();
-
-  if(!num || !tema || !fecha) {
-    alert("Número, Tema y Fecha son obligatorios.");
-    return;
-  }
-
-  if(!globalData.sesiones) globalData.sesiones = [];
-
-  const tags = tagsStr ? tagsStr.split(',').map(t => t.trim()).filter(t => t !== '') : [];
-
-  globalData.sesiones.push({
-    id: `ses-${Date.now()}`,
-    num, tema, fecha, tags
-  });
-
-  saveData();
-  document.getElementById('sesion-num').value = '';
-  document.getElementById('sesion-tema').value = '';
-  document.getElementById('sesion-fecha').value = '';
-  document.getElementById('sesion-tags').value = '';
-}
-
 window.removeProject = function(id) {
   if(!confirm("¿Seguro que deseas eliminar este proyecto?")) return;
   globalData.projects = globalData.projects.filter(p => p.id !== id);
@@ -447,14 +377,6 @@ window.removeCert = function(id) {
   if(!confirm("¿Seguro que deseas eliminar este certificado?")) return;
   globalData.certifications = globalData.certifications.filter(c => c.id !== id);
   saveData();
-};
-
-window.removeSesion = function(id) {
-  if(!confirm("¿Seguro que deseas eliminar esta sesión?")) return;
-  if(globalData.sesiones) {
-    globalData.sesiones = globalData.sesiones.filter(s => s.id !== id);
-    saveData();
-  }
 };
 
 function escapeHtml(text) {
