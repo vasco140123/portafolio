@@ -159,8 +159,11 @@
   }
 
   // ── Init ──
-  resizeCanvas();
-  animate();
+  // Esperar un frame para asegurar que el DOM tiene dimensiones
+  requestAnimationFrame(function () {
+    resizeCanvas();
+    animate();
+  });
 
   let resizeTimeout;
   window.addEventListener('resize', function () {

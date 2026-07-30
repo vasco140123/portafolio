@@ -52,23 +52,23 @@
 /* Reset Absoluto */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; background: var(--color-bg); }
+html { font-size: 16px; background: transparent; }
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-bg);
+  background-color: transparent;
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
-  min-height: 100dvh; /* Dynamic Viewport para móvil */
+  min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
-  padding-bottom: env(safe-area-inset-bottom); /* iOS Notch / Android Home Bar */
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Scrollbar invisible/mínimo para look nativo */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-track { background: #050810; }
 ::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 2px; }
 
 ::selection { background: var(--violet); color: #fff; }
@@ -93,9 +93,7 @@ body {
 section {
   position: relative;
   z-index: 1;
-  background: rgba(5, 8, 16, 0.85);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: rgba(5, 8, 16, 0.92);
 }
 
 .section-container {
@@ -137,7 +135,7 @@ section {
 #loader {
   position: fixed;
   inset: 0;
-  background: var(--color-bg);
+  background: #050810;
   display: flex;
   flex-direction: column;
   align-items: center;
