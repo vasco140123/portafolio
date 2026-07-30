@@ -6,9 +6,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   loadAllComponents().then(() => {
-    // Una vez cargados todos los componentes, inicializar la SPA
     setupNavbar();
     setupSPARouter();
+    if (typeof initPillNav === 'function') initPillNav();
     window.dispatchEvent(new Event('components-loaded'));
   });
 });

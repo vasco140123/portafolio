@@ -228,6 +228,37 @@ body {
 }
 
 /* ============================================
+   FONDOS OPACOS — legibilidad sobre LetterGlitch
+   ============================================ */
+
+/* Footer */
+.site-footer {
+  background: rgba(5, 8, 16, 0.95);
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Botón CMS trigger */
+.btn-cms-trigger {
+  background: rgba(10, 14, 26, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Admin panel overlays */
+.cms-overlay {
+  background: rgba(5, 8, 16, 0.97);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Modal content */
+.modal-content {
+  background: var(--color-surface) !important;
+}
+
+/* ============================================
    MOBILE-FIRST UX OVERRIDES
    ============================================ */
 @media (pointer: coarse) {
