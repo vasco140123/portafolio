@@ -209,13 +209,13 @@ function bindCMSEvents() {
     });
   }
 
-  // Tabs Logic
-  document.querySelectorAll('.cms-tab-btn').forEach(btn => {
+  // Tabs Logic (PillNav style)
+  document.querySelectorAll('.cms-pill').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      document.querySelectorAll('.cms-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.cms-pill').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.cms-tab').forEach(t => t.classList.remove('active'));
-      e.target.classList.add('active');
-      document.getElementById(e.target.dataset.tab).classList.add('active');
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
     });
   });
 
@@ -268,6 +268,9 @@ function bindCMSEvents() {
 function initAdminDashboard() {
   document.getElementById('cms-bio-text').value = globalData.bio || '';
   renderAdminLists();
+  if (typeof window.initCmsPills === 'function') {
+    setTimeout(window.initCmsPills, 100);
+  }
 }
 
 function renderAdminLists() {

@@ -197,4 +197,93 @@
 
   // ── Expose init for component loader ──
   window.initPillNav = initPillNav;
+
+  // ── CMS Pills Animation (GSAP hover circles) ──
+  window.initCmsPills = function () {
+    if (typeof gsap === 'undefined') return;
+
+    var cmsPills = document.querySelectorAll('.cms-pill');
+    var cmsCircles = document.querySelectorAll('.cms-pill-hover-circle');
+    var cmsTlRefs = [];
+    var cmsActiveTweens = [];
+
+    // Layout circles
+    function layoutCmsCircles() {
+      Array.from(cmsCircles).forEach(function (circle) {
+        if (!circle || !circle.parentElement) return;
+        var pill = circle.parentElement;
+        var rect = pill.getBoundingClientRect();
+        var w = rect.width;
+        var h = rect.height;
+        if (w === 0 || h === 0) return;
+        var R = ((w * w) / 4 + h * h) / (2 * h);
+        var D = Math.ceil(2 * R) + 2;
+        var delta = Math.ceil(R - Math.sqrt(Math.max(0, R * R - (w * w) / 4))) + 1;
+        var originY = D - delta;
+
+        circle.style.width = D + 'px';
+        circle.style.height = D + 'px';
+        circle.style.bottom = '-' + delta + 'px';
+
+        gsap.set(circle, {
+          xPercent: -50,
+          scale: 0,
+          transformOrigin: '50% ' + originY + 'px'
+        });
+
+        var label = pill.querySelector('.cms-pill-label');
+        var white = pill.querySelector('.cms-pill-label-hover');
+
+        if (label) gsap.set(label, { y: 0 });
+        if (white) gsap.set(white, { y: h + 12, opacity: 0 });
+
+        var index = Array.from(cmsCircles).indexOf(circle);
+        if (index === -1) return;
+
+        cmsTlRefs[index] && cmsTlRefs[index].kill();
+        var tl = gsap.timeline({ paused: true });
+
+        tl.to(circle, { scale: 1.2, xPercent: -50, duration: 2, ease: ease, overwrite: 'auto' }, 0);
+        if (label) {
+          tl.to(label, { y: -(h + 8), duration: 2, ease: ease, overwrite: 'auto' }, 0);
+        }
+        if (white) {
+          gsap.set(white, { y: Math.ceil(h + 100), opacity: 0 });
+          tl.to(white, { y: 0, opacity: 1, duration: 2, ease: ease, overwrite: 'auto' }, 0);
+        }
+
+        cmsTlRefs[index] = tl;
+      });
+    }
+
+    // Hover events
+    cmsPills.forEach(function (pill, i) {
+      pill.addEventListener('mouseenter', function () {
+        var tl = cmsTlRefs[i];
+        if (!tl) return;
+        cmsActiveTweens[i] && cmsActiveTweens[i].kill();
+        cmsActiveTweens[i] = tl.tweenTo(tl.duration(), {
+          duration: 0.3, ease: ease, overwrite: 'auto'
+        });
+      });
+      pill.addEventListener('mouseleave', function () {
+        var tl = cmsTlRefs[i];
+        if (!tl) return;
+        cmsActiveTweens[i] && cmsActiveTweens[i].kill();
+        cmsActiveTweens[i] = tl.tweenTo(0, {
+          duration: 0.2, ease: ease, overwrite: 'auto'
+        });
+      });
+    });
+
+    // Initial layout
+    layoutCmsCircles();
+
+    // Resize
+    var resizeTimeout;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(layoutCmsCircles, 100);
+    });
+  };
 })();
