@@ -9,7 +9,7 @@
   if (!container) return;
 
   // ── Config ──
-  var glitchColors = ['#2b4539', '#61dc84', '#61b3dc'];
+  var glitchColors = ['#2b4539', '#61dca3', '#61b3dc'];
   var glitchSpeed = 50;
   var smooth = true;
   var outerVignette = true;
