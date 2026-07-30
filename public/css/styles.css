@@ -76,6 +76,28 @@ body {
 /* ============================================
    UTILITARIOS GLOBALES
    ============================================ */
+
+/* LetterGlitch Background */
+#letter-glitch-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Fondo semi-transparente en secciones para legibilidad sobre el glitch */
+section {
+  position: relative;
+  z-index: 1;
+  background: rgba(5, 8, 16, 0.85);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
 .section-container {
   max-width: var(--container-max);
   margin: 0 auto;
